@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Educa Kids — Cuadernillo Educativo para Niños</title>
+  <meta name="description" content="Más de 500 actividades educativas en PDF para niños de 2 a 7 años. Imprimible, de alta calidad e ideal para casa o escuela." />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Educa Kids — Cuadernillo Educativo para Niños" />
+  <meta property="og:description" content="Más de 500 actividades para aprender jugando. Descarga al instante." />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ====================================================
+     NAVBAR
+     ==================================================== -->
+<nav id="navbar">
+  <div class="container nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">⭐</div>
+      Educa<span>Kids</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#hero"                 class="nav-link">Inicio</a></li>
+      <li><a href="#contenido"            class="nav-link">Contenido</a></li>
+      <li><a href="#como-funciona"        class="nav-link">Cómo funciona</a></li>
+      <li><a href="#preguntas-frecuentes" class="nav-link">Preguntas frecuentes</a></li>
+      <li><a href="#contacto"             class="nav-link">Contacto</a></li>
+    </ul>
+
+    <button class="btn btn-accent" data-action="buy" style="display:none" id="nav-buy-btn">Comprar ahora</button>
+
+    <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="mobile-menu">
+    <a href="#hero"                 class="mobile-link">Inicio</a>
+    <a href="#contenido"            class="mobile-link">Contenido</a>
+    <a href="#como-funciona"        class="mobile-link">Cómo funciona</a>
+    <a href="#preguntas-frecuentes" class="mobile-link">Preguntas frecuentes</a>
+    <a href="#contacto"             class="mobile-link">Contacto</a>
+    <button class="btn btn-accent" data-action="buy">Comprar ahora</button>
+  </div>
+</nav>
+
+<!-- Show desktop buy button after scroll -->
+<script>
+  window.addEventListener('scroll', () => {
+    const btn = document.getElementById('nav-buy-btn');
+    if(btn) btn.style.display = window.scrollY > 80 ? 'inline-flex' : 'none';
+  });
+</script>
+
+<!-- ====================================================
+     HERO
+     ==================================================== -->
+<section id="hero">
+  <div class="container hero-grid">
+    <!-- Text -->
+    <div>
+      <div class="hero-badge reveal">
+        <span class="hero-badge-dot"></span>
+        Para niños de 2 a 7 años
+      </div>
+
+      <h1 class="hero-title reveal reveal-delay-1">
+        Cuadernillo Educativo<br>
+        <span class="accent">para Niños</span>
+      </h1>
+
+      <p class="hero-subtitle reveal reveal-delay-2">
+        Más de <strong>500 actividades</strong> para aprender jugando.
+      </p>
+      <p class="hero-desc reveal reveal-delay-2">
+        Material educativo diseñado para estimular la creatividad, el aprendizaje y la motricidad en niños pequeños desde casa.
+      </p>
+
+      <div class="hero-cta reveal reveal-delay-3">
+        <button class="btn btn-accent btn-xl" data-action="buy">
+          Comprar ahora — $2.990 ARS &nbsp;→
+        </button>
+        <a href="#contenido" class="btn btn-outline btn-lg">Ver contenido</a>
+      </div>
+
+      <div class="hero-trust reveal reveal-delay-3">
+        <span class="trust-item"><span class="trust-icon">🛡️</span> PDF de alta calidad</span>
+        <span class="trust-item"><span class="trust-icon">✅</span> +500 actividades</span>
+        <span class="trust-item"><span class="trust-icon">⬇️</span> Descarga inmediata</span>
+      </div>
+    </div>
+
+    <!-- Workbook mockup -->
+    <div class="mockup-wrap">
+      <div class="mockup-back"></div>
+      <div class="mockup-mid"></div>
+      <div class="mockup-front">
+        <div class="mockup-header">
+          <span>EDUCA KIDS</span>
+        </div>
+        <div class="mockup-body">
+          <div class="mock-line"></div>
+          <div class="mock-line short"></div>
+          <div class="mock-grid">
+            <div class="mock-card pink">
+              <div class="mock-circle"></div>
+            </div>
+            <div class="mock-card indigo">
+              <div class="mock-pill"></div>
+              <div class="mock-pill"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="float-badge float-a">A</div>
+      <div class="float-badge float-1">1</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ====================================================
+     CONTENT
+     ==================================================== -->
+<section id="contenido">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2>Contenido del cuadernillo</h2>
+      <p>Un temario completo para el desarrollo integral de tu pequeño. Todo en un solo lugar.</p>
+    </div>
+
+    <div class="topics-grid">
+      <div class="topic-card reveal">
+        <div class="topic-icon blue">✏️</div>
+        <h3>Trazos</h3>
+      </div>
+      <div class="topic-card reveal reveal-delay-1">
+        <div class="topic-icon pink">🎨</div>
+        <h3>Los colores</h3>
+      </div>
+      <div class="topic-card reveal reveal-delay-2">
+        <div class="topic-icon green">🖐️</div>
+        <h3>Técnicas grafoplásticas</h3>
+      </div>
+      <div class="topic-card reveal reveal-delay-3">
+        <div class="topic-icon amber">📐</div>
+        <h3>Conceptos básicos</h3>
+      </div>
+      <div class="topic-card reveal">
+        <div class="topic-icon purple">🔤</div>
+        <h3>Las vocales</h3>
+      </div>
+      <div class="topic-card reveal reveal-delay-1">
+        <div class="topic-icon rose">✍️</div>
+        <h3>Nombre propio</h3>
+      </div>
+      <div class="topic-card reveal reveal-delay-2">
+        <div class="topic-icon cyan">🔢</div>
+        <h3>Números</h3>
+      </div>
+      <div class="topic-card reveal reveal-delay-3">
+        <div class="topic-icon orange">🔷</div>
+        <h3>Figuras geométricas</h3>
+      </div>
+      <div class="topic-card reveal">
+        <div class="topic-icon teal">🧍</div>
+        <h3>Partes del cuerpo</h3>
+      </div>
+      <div class="topic-card reveal reveal-delay-1">
+        <div class="topic-icon indigo">✂️</div>
+        <h3>Motricidad fina</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ====================================================
+     BENEFITS
+     ==================================================== -->
+<section id="beneficios">
+  <div class="container benefits-grid">
+    <!-- Visual -->
+    <div class="benefits-visual reveal">
+      <div class="benefits-card">
+        <div class="benefits-dots"></div>
+        <div class="benefits-circles">
+          <div class="bc bl"></div>
+          <div class="bc ye"></div>
+          <div class="bc gr"></div>
+          <div class="bc re"></div>
+        </div>
+      </div>
+      <div class="benefits-star">🌟</div>
+    </div>
+
+    <!-- List -->
+    <div class="benefits-text">
+      <h2 class="reveal">¿Por qué elegir <span style="color:var(--blue)">Educa Kids</span>?</h2>
+      <ul class="benefits-list" style="margin-top:2rem">
+        <li class="benefit-item reveal reveal-delay-1">
+          <div class="benefit-check">✔</div>
+          <p>Más de 500 actividades educativas probadas</p>
+        </li>
+        <li class="benefit-item reveal reveal-delay-2">
+          <div class="benefit-check">✔</div>
+          <p>Material en PDF de alta calidad listo para imprimir</p>
+        </li>
+        <li class="benefit-item reveal reveal-delay-3">
+          <div class="benefit-check">✔</div>
+          <p>Imprimible las veces que quieras para varios hijos</p>
+        </li>
+        <li class="benefit-item reveal">
+          <div class="benefit-check">✔</div>
+          <p>Ideal para usar en casa o complementar la escuela</p>
+        </li>
+        <li class="benefit-item reveal reveal-delay-1">
+          <div class="benefit-check">✔</div>
+          <p>Actividades graduadas para niños de 2 a 7 años</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<!-- ====================================================
+     HOW IT WORKS
+     ==================================================== -->
+<section id="como-funciona">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2>¿Cómo funciona?</h2>
+      <p>En menos de 5 minutos tendrás todo el material listo para usar.</p>
+    </div>
+
+    <div class="steps-row">
+      <div class="step reveal">
+        <div class="step-icon">🛒</div>
+        <div class="step-number">Paso 1</div>
+        <h3>Compra el cuadernillo</h3>
+        <p>Haz clic en comprar ahora</p>
+      </div>
+
+      <div class="step-connector reveal">→</div>
+
+      <div class="step reveal reveal-delay-1">
+        <div class="step-icon">💳</div>
+        <div class="step-number">Paso 2</div>
+        <h3>Pago 100% seguro</h3>
+        <p>Abona con tu método favorito</p>
+      </div>
+
+      <div class="step-connector reveal reveal-delay-1">→</div>
+
+      <div class="step reveal reveal-delay-2">
+        <div class="step-icon">📥</div>
+        <div class="step-number">Paso 3</div>
+        <h3>Descarga al instante</h3>
+        <p>Recibe el PDF en tu email</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ====================================================
+     TESTIMONIALS
+     ==================================================== -->
+<section id="testimonios">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2>Lo que dicen los padres</h2>
+      <p>Familias que ya están aprendiendo y jugando con Educa Kids.</p>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">
+          "Mis hijos aman las actividades, son perfectas para su edad! El material es de excelente calidad y muy variado."
+        </p>
+        <div class="testimonial-author">
+          <div class="author-avatar av-pink">LM</div>
+          <span class="author-name">Laura M.</span>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal reveal-delay-1">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">
+          "Lo compré para mi hija de 4 años y es increíble. Vale cada peso, muy completo. Lo imprimí y encuaderné fácilmente."
+        </p>
+        <div class="testimonial-author">
+          <div class="author-avatar av-blue">CG</div>
+          <span class="author-name">Carla G.</span>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal reveal-delay-2">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">
+          "Excelente material educativo. Lo recomiendo a todos los padres que quieran entretener a sus hijos lejos de las pantallas."
+        </p>
+        <div class="testimonial-author">
+          <div class="author-avatar av-amber">MR</div>
+          <span class="author-name">Martín R.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ====================================================
+     FAQ
+     ==================================================== -->
+<section id="preguntas-frecuentes">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2>Preguntas frecuentes</h2>
+    </div>
+
+    <div class="faq-list">
+
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          ¿El material es digital o físico?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">
+          <p>El cuadernillo es un archivo PDF 100% digital. No enviamos libros físicos. Esto te permite imprimirlo inmediatamente y las veces que quieras.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal reveal-delay-1">
+        <button class="faq-question">
+          ¿Cuántas actividades incluye?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">
+          <p>El cuadernillo incluye más de 500 actividades educativas diseñadas paso a paso para el desarrollo cognitivo y motriz de los niños.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal reveal-delay-2">
+        <button class="faq-question">
+          ¿Se puede imprimir más de una vez?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">
+          <p>¡Sí! Una vez que descargas el PDF, es tuyo para siempre. Puedes imprimir las hojas que necesites, las veces que quieras.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          ¿Para qué edades está pensado?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">
+          <p>Está diseñado especialmente para niños en etapa preescolar, de 2 a 7 años de edad, con niveles progresivos de dificultad.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal reveal-delay-1">
+        <button class="faq-question">
+          ¿Cuándo recibo el material?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">
+          <p>Inmediatamente. Una vez que tu pago sea procesado y aprobado, recibirás automáticamente un correo electrónico con el enlace de descarga.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ====================================================
+     FINAL CTA
+     ==================================================== -->
+<section id="comprar-ahora">
+  <div class="container">
+    <div class="cta-box reveal">
+      <h2>Empieza hoy a aprender jugando</h2>
+      <p>Únete a cientos de familias que ya están estimulando la creatividad de sus hijos desde casa.</p>
+
+      <div class="price-card">
+        <div class="price-label">Oferta Especial</div>
+        <div class="price-amount">$2.990 <span>ARS</span></div>
+        <button class="btn btn-accent btn-xl btn-cta-main" data-action="buy" style="width:100%">
+          ¡Comprar y descargar ahora!
+        </button>
+        <p class="cta-secure">🔒 Pago 100% seguro. Acceso inmediato.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ====================================================
+     FOOTER
+     ==================================================== -->
+<footer id="contacto">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <div class="logo-icon">⭐</div>
+          Educa<span>Kids</span>
+        </a>
+        <p>
+          Creando materiales educativos diseñados con amor para estimular el aprendizaje y la creatividad en la primera infancia.
+        </p>
+        <a href="mailto:contacto@educakids.com" class="footer-email">
+          ✉️ contacto@educakids.com
+        </a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Enlaces útiles</h4>
+        <ul>
+          <li><a href="#contenido">Contenido</a></li>
+          <li><a href="#como-funciona">Cómo funciona</a></li>
+          <li><a href="#preguntas-frecuentes">Preguntas frecuentes</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Términos y condiciones</a></li>
+          <li><a href="#">Política de privacidad</a></li>
+          <li><a href="#">Políticas de reembolso</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> Educa Kids. Todos los derechos reservados.</p>
+      <a href="https://wa.me/5491234567890" target="_blank" rel="noopener" class="wa-link">
+        💬 Atención por WhatsApp
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+<script src="script.js"></script>
+</body>
+</html>
