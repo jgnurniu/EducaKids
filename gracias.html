@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>¡Gracias por tu compra! — Educa Kids</title>
+  <meta name="robots" content="noindex" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="gracias-page">
+
+  <!-- Header -->
+  <header class="gracias-header">
+    <a href="index.html" class="logo">
+      <div class="logo-icon">⭐</div>
+      Educa<span>Kids</span>
+    </a>
+  </header>
+
+  <!-- Main -->
+  <main class="gracias-main">
+    <div class="gracias-card">
+
+      <!-- Success icon -->
+      <div class="success-circle">✅</div>
+
+      <h1>¡Gracias por tu compra!</h1>
+      <p class="sub">Tu cuadernillo educativo ya está listo para descargar.</p>
+      <p class="desc">Puedes descargar tu material haciendo clic en el botón de abajo.</p>
+
+      <!-- Download card -->
+      <div class="download-box">
+
+        <!-- Countdown -->
+        <div id="countdown-wrap">
+          <p class="countdown-label">Tu descarga comenzará en...</p>
+          <div id="countdown-num" class="countdown-num">3</div>
+          <p class="countdown-seconds">segundos</p>
+        </div>
+
+        <!-- Ready message (hidden initially) -->
+        <div id="ready-msg" class="download-ready-msg">
+          ✅ &nbsp;¡Tu descarga está lista!
+        </div>
+
+        <!-- Download button -->
+        <button id="download-btn" class="btn btn-download" disabled>
+          ⬇️ &nbsp;Descargar Cuadernillo
+        </button>
+
+        <p class="note">Archivo PDF de alta calidad — Imprimible ilimitadamente</p>
+      </div>
+
+      <!-- Email note -->
+      <p style="font-size:.9rem;color:var(--gray-400);margin-bottom:2rem;display:flex;align-items:center;justify-content:center;gap:.5rem">
+        ✉️ También recibirás el PDF en tu correo electrónico.
+      </p>
+
+      <!-- Support -->
+      <div class="support-box">
+        <p>
+          ¿Tuviste algún problema con tu descarga?<br>
+          <strong style="color:var(--gray-700)">Estamos aquí para ayudarte.</strong>
+        </p>
+        <a id="wa-link" href="#" target="_blank" rel="noopener" class="btn btn-whatsapp">
+          💬 &nbsp;Contactar por WhatsApp
+        </a>
+        <small>
+          O escríbenos a
+          <a id="email-link" href="#" class="email-link">contacto@educakids.com</a>
+        </small>
+      </div>
+
+      <a href="index.html" class="back-link">← Volver al inicio</a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="gracias-footer">
+    © <span id="year2"></span> Educa Kids. Todos los derechos reservados.
+  </footer>
+
+</div>
+
+<script>
+  document.getElementById('year2').textContent = new Date().getFullYear();
+</script>
+<script src="script.js"></script>
+</body>
+</html>
