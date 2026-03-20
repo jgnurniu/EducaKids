@@ -1,0 +1,1885 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- ============================================================
+       IA PARA DOCENTES — Cuadernillo Digital Premium
+       index.html — Estructura principal del documento
+       ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>IA para Docentes: Tu Guía Definitiva | Cuadernillo Digital 2025</title>
+  <meta name="description" content="Guía premium interactiva para docentes que quieren dominar la Inteligencia Artificial. Prompts listos, actividades prácticas y herramientas esenciales." />
+  <meta name="keywords" content="inteligencia artificial, docentes, educación, ChatGPT, prompts, planificación, IA educativa" />
+  <meta name="author" content="IA para Docentes" />
+
+  <!-- Open Graph (redes sociales) -->
+  <meta property="og:title" content="IA para Docentes: Tu Guía Definitiva" />
+  <meta property="og:description" content="Domina la IA para ahorrar tiempo, personalizar el aprendizaje y transformar tus clases." />
+  <meta property="og:type" content="website" />
+
+  <!-- Favicon emoji -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>" />
+
+  <!-- Hoja de estilos -->
+  <style>
+    /* ============================================================
+   IA PARA DOCENTES — Cuadernillo Digital Premium
+   styles.css — Todos los estilos de la aplicación
+   ============================================================ */
+
+/* ── Importar tipografía ──────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+/* ── Variables de color y diseño ─────────────────────────── */
+:root {
+  --blue:          #3B82F6;
+  --blue-dark:     #1D4ED8;
+  --blue-light:    #EFF6FF;
+  --violet:        #7C3AED;
+  --violet-dark:   #5B21B6;
+  --violet-light:  #F5F3FF;
+  --teal:          #14B8A6;
+  --teal-light:    #F0FDFA;
+  --orange:        #F97316;
+  --orange-light:  #FFF7ED;
+  --green:         #10B981;
+  --green-light:   #ECFDF5;
+  --rose:          #F43F5E;
+  --rose-light:    #FFF1F2;
+  --amber:         #F59E0B;
+  --amber-light:   #FFFBEB;
+
+  --bg:            #FFFFFF;
+  --bg-muted:      #F3F4F6;
+  --text:          #1F2937;
+  --text-muted:    #6B7280;
+  --border:        #E5E7EB;
+  --border-light:  #F3F4F6;
+
+  --radius-sm:     8px;
+  --radius:        12px;
+  --radius-lg:     16px;
+  --radius-xl:     20px;
+  --radius-2xl:    24px;
+  --radius-3xl:    32px;
+
+  --shadow-sm:     0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow:        0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
+  --shadow-lg:     0 10px 30px rgba(0,0,0,0.10), 0 4px 8px rgba(0,0,0,0.06);
+  --shadow-xl:     0 20px 50px rgba(0,0,0,0.12), 0 8px 16px rgba(0,0,0,0.06);
+
+  --nav-height:    68px;
+  --max-width:     900px;
+}
+
+/* ── Reset y base ─────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+ul, ol { list-style: none; }
+a { text-decoration: none; color: inherit; }
+
+/* ── Utilidades ───────────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, var(--blue), var(--violet));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* ── Animaciones de entrada (Intersection Observer) ──────── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.55s ease-out, transform 0.55s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-delay-1 { transition-delay: 0.1s; }
+.fade-in-delay-2 { transition-delay: 0.2s; }
+.fade-in-delay-3 { transition-delay: 0.3s; }
+.fade-in-delay-4 { transition-delay: 0.4s; }
+
+/* ── NAVEGACIÓN ───────────────────────────────────────────── */
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--nav-height);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  gap: 1rem;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: var(--blue);
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.nav-logo .logo-icon {
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(135deg, var(--blue), var(--violet));
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 14px;
+}
+
+/* Botones de sección en el nav */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.nav-links::-webkit-scrollbar { display: none; }
+
+.nav-btn {
+  padding: 6px 12px;
+  border-radius: 100px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.nav-btn:hover {
+  background: var(--bg-muted);
+  color: var(--text);
+}
+
+.nav-btn.active {
+  background: var(--blue);
+  color: white;
+  box-shadow: 0 2px 8px rgba(59,130,246,0.35);
+}
+
+/* Menú hamburguesa (mobile) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 6px;
+  border-radius: 8px;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+
+.hamburger:hover { background: var(--bg-muted); }
+
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* Menú móvil desplegable */
+#mobile-menu {
+  display: none;
+  background: white;
+  border-bottom: 1px solid var(--border);
+  padding: 0.75rem 1rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+#mobile-menu.open {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 400px;
+}
+
+.mobile-nav-btn {
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.mobile-nav-btn:hover { background: var(--bg-muted); color: var(--text); }
+.mobile-nav-btn.active { background: rgba(59,130,246,0.08); color: var(--blue); }
+
+/* Barra de progreso */
+#progress-bar-wrap {
+  height: 3px;
+  background: var(--border-light);
+}
+
+#progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--blue), var(--violet));
+  transition: width 0.1s linear;
+}
+
+/* ── CONTENIDO PRINCIPAL ──────────────────────────────────── */
+main {
+  padding-top: var(--nav-height);
+}
+
+section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.section-content {
+  padding: 5rem 1.25rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Separadores entre secciones */
+.section-separator {
+  padding: 1rem 0;
+}
+
+.section-separator-line {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--blue) 30%, var(--violet) 70%, transparent);
+  max-width: 500px;
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+/* ── CABECERA DE SECCIÓN (SectionHeader) ──────────────────── */
+.section-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 3.5rem auto;
+}
+
+.section-eyebrow {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--violet);
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 900;
+  line-height: 1.15;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+/* ── TARJETAS (Cards) ─────────────────────────────────────── */
+.card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.card-p { padding: 2rem; }
+.card-p-lg { padding: 2.5rem; }
+
+/* ── BADGES ───────────────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.badge-blue    { background: rgba(59,130,246,0.1); color: var(--blue); }
+.badge-violet  { background: rgba(124,58,237,0.1); color: var(--violet); }
+.badge-gray    { background: var(--bg-muted); color: var(--text-muted); border: 1px solid var(--border); }
+.badge-white   { background: white; color: var(--text); border: 1px solid var(--border); }
+.badge-amber   { background: var(--amber-light); color: #92400E; border: 1px solid #FDE68A; }
+.badge-green   { background: var(--green-light); color: #065F46; }
+.badge-rose    { background: var(--rose-light); color: #9F1239; }
+.badge-outline { background: transparent; color: var(--text-muted); border: 1px solid var(--border); }
+
+/* ── BOTONES ──────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0.75rem 1.75rem;
+  border-radius: 100px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  font-family: inherit;
+  line-height: 1;
+}
+
+.btn-premium {
+  background: linear-gradient(135deg, var(--blue), var(--violet));
+  color: white;
+  box-shadow: 0 4px 20px rgba(124,58,237,0.4);
+}
+
+.btn-premium:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(124,58,237,0.5);
+}
+
+.btn-violet {
+  background: var(--violet);
+  color: white;
+}
+
+.btn-violet:hover {
+  background: var(--violet-dark);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1.5px solid var(--border);
+}
+
+.btn-outline:hover {
+  background: var(--bg-muted);
+  color: var(--text);
+}
+
+.btn-lg {
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+}
+
+/* ── SECCIÓN 1: PORTADA ───────────────────────────────────── */
+#portada {
+  background: linear-gradient(135deg, #EFF6FF 0%, #EDE9FE 50%, #F5F3FF 100%);
+}
+
+.cover-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - var(--nav-height));
+  padding: 4rem 1.25rem;
+}
+
+.cover-glass {
+  background: rgba(255,255,255,0.72);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255,255,255,0.85);
+  border-radius: var(--radius-3xl);
+  box-shadow: var(--shadow-xl);
+  padding: 4rem 3rem;
+  text-align: center;
+  max-width: 800px;
+  width: 100%;
+}
+
+.cover-badge {
+  display: inline-block;
+  background: white;
+  color: var(--blue);
+  border: 1px solid rgba(59,130,246,0.2);
+  border-radius: 100px;
+  padding: 6px 18px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-bottom: 1.75rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.cover-title {
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--text);
+  margin-bottom: 1.25rem;
+}
+
+.cover-subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: var(--text-muted);
+  line-height: 1.65;
+  max-width: 520px;
+  margin: 0 auto 2.5rem;
+}
+
+.cover-stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.cover-stat {
+  background: rgba(255,255,255,0.65);
+  border: 1px solid rgba(255,255,255,0.9);
+  backdrop-filter: blur(8px);
+  border-radius: 100px;
+  padding: 8px 18px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* ── SECCIÓN 2: INTRODUCCIÓN ──────────────────────────────── */
+.intro-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.intro-card {
+  padding: 2rem;
+  border-top: 4px solid;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.intro-card.blue-top  { border-top-color: #60A5FA; }
+.intro-card.violet-top{ border-top-color: var(--violet); }
+.intro-card.teal-top  { border-top-color: var(--teal); }
+
+.intro-card-icon { font-size: 2.5rem; line-height: 1; }
+.intro-card-title { font-size: 1.1rem; font-weight: 800; color: var(--text); }
+.intro-card-desc  { font-size: 0.93rem; color: var(--text-muted); line-height: 1.6; }
+
+.intro-quote {
+  background: rgba(243,244,246,0.6);
+  border-left: 4px solid var(--violet);
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+  padding: 1.5rem 2rem;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--text);
+  max-width: 700px;
+  margin: 0 auto;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── SECCIÓN 3: HERRAMIENTAS ──────────────────────────────── */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.tool-card {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.tool-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.tool-emoji {
+  font-size: 2rem;
+  background: var(--bg-muted);
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.tool-card:hover .tool-emoji { transform: scale(1.1); }
+
+.tool-name { font-size: 1.1rem; font-weight: 800; color: var(--text); }
+.tool-price { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin-top: 2px; }
+.tool-desc  { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; flex-grow: 1; }
+
+.tool-footer { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.tool-recommended {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+/* ── SECCIÓN 4: FÓRMULA PROMPT ────────────────────────────── */
+.formula-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.formula-block {
+  padding: 1.5rem 1rem;
+  border-radius: var(--radius-xl);
+  border: 1.5px solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.6rem;
+}
+
+.formula-block.blue   { background: #EFF6FF; border-color: #BFDBFE; color: #1D4ED8; }
+.formula-block.violet { background: #F5F3FF; border-color: #C4B5FD; color: #5B21B6; }
+.formula-block.teal   { background: #F0FDFA; border-color: #99F6E4; color: #0F766E; }
+.formula-block.orange { background: #FFF7ED; border-color: #FED7AA; color: #C2410C; }
+
+.formula-block-icon { font-size: 2rem; }
+.formula-block-title { font-weight: 800; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; }
+.formula-block-desc  { font-size: 0.8rem; opacity: 0.85; line-height: 1.4; }
+
+.comparison-card {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.comparison-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.comparison-row {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-lg);
+}
+
+.comparison-row.bad  { background: rgba(244,63,94,0.05); border: 1px solid rgba(244,63,94,0.12); }
+.comparison-row.good { background: rgba(16,185,129,0.05); border: 1px solid rgba(16,185,129,0.12); }
+
+.comparison-text { font-size: 0.95rem; line-height: 1.6; color: var(--text-muted); font-style: italic; }
+.comparison-text .c-blue   { background: #DBEAFE; color: #1D4ED8; padding: 1px 5px; border-radius: 4px; }
+.comparison-text .c-violet { background: #EDE9FE; color: #5B21B6; padding: 1px 5px; border-radius: 4px; }
+.comparison-text .c-teal   { background: #CCFBF1; color: #0F766E; padding: 1px 5px; border-radius: 4px; }
+.comparison-text .c-orange { background: #FFEDD5; color: #C2410C; padding: 1px 5px; border-radius: 4px; }
+
+/* Bloque de prompt (estilo código) */
+.prompt-block {
+  background: var(--bg-muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+  font-size: 0.85rem;
+  line-height: 1.75;
+  color: #374151;
+  position: relative;
+  overflow-y: auto;
+  max-height: 220px;
+  scrollbar-width: thin;
+  scrollbar-color: #D1D5DB transparent;
+}
+
+.prompt-block::-webkit-scrollbar { width: 4px; }
+.prompt-block::-webkit-scrollbar-track { background: transparent; }
+.prompt-block::-webkit-scrollbar-thumb { background: #D1D5DB; border-radius: 4px; }
+
+.prompt-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+
+/* ── SECCIÓN 5: BIBLIOTECA DE PROMPTS ────────────────────── */
+.category-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+.category-btn {
+  padding: 8px 20px;
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1.5px solid var(--border);
+  color: var(--text-muted);
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.category-btn:hover { background: var(--bg-muted); color: var(--text); }
+
+.category-btn.active {
+  background: var(--violet);
+  color: white;
+  border-color: var(--violet);
+  box-shadow: 0 3px 12px rgba(124,58,237,0.35);
+  transform: scale(1.04);
+}
+
+.prompts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.prompt-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.prompt-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+
+.prompt-card-body {
+  padding: 1.75rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.prompt-card-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.prompt-copy-btn {
+  width: 100%;
+  padding: 1rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  border: none;
+  font-family: inherit;
+}
+
+.prompt-copy-btn.default { background: var(--violet); color: white; }
+.prompt-copy-btn.default:hover { background: var(--violet-dark); }
+.prompt-copy-btn.copied { background: #10B981; color: white; }
+
+/* ── SECCIÓN 6: ACTIVIDADES ───────────────────────────────── */
+.activities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.activity-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.activity-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+
+.activity-top-bar {
+  height: 5px;
+  background: linear-gradient(90deg, var(--blue), var(--violet));
+}
+
+.activity-card-body { padding: 1.75rem; flex-grow: 1; display: flex; flex-direction: column; position: relative; }
+
+.activity-number {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  font-size: 4.5rem;
+  font-weight: 900;
+  color: rgba(0,0,0,0.04);
+  line-height: 1;
+  user-select: none;
+}
+
+.activity-title { font-size: 1rem; font-weight: 800; color: var(--text); margin-bottom: 1rem; position: relative; z-index: 1; line-height: 1.35; }
+
+.activity-badges { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+
+.activity-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+  flex-grow: 1;
+}
+
+.activity-steps::before {
+  content: '';
+  position: absolute;
+  left: 11px;
+  top: 6px;
+  bottom: 6px;
+  width: 1.5px;
+  background: rgba(0,0,0,0.08);
+}
+
+.activity-step {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  position: relative;
+}
+
+.step-num {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.step-text { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; padding-top: 3px; }
+
+.activity-tip {
+  margin: 1rem;
+  margin-top: auto;
+  padding: 0.875rem 1rem;
+  background: #EFF6FF;
+  border: 1px solid #BFDBFE;
+  border-radius: var(--radius);
+  font-size: 0.8rem;
+  color: #1D4ED8;
+  line-height: 1.5;
+}
+
+.activity-tip strong { color: var(--blue); }
+
+/* ── SECCIÓN 7: BONUS ─────────────────────────────────────── */
+.bonus-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.bonus-card-errors {
+  padding: 2.5rem;
+  background: #FFF1F2;
+  border: 1px solid #FFE4E6;
+  border-radius: var(--radius-xl);
+}
+
+.bonus-card-tips {
+  padding: 2.5rem;
+  background: #ECFDF5;
+  border: 1px solid #D1FAE5;
+  border-radius: var(--radius-xl);
+}
+
+.bonus-card-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+}
+
+.bonus-card-errors .bonus-card-title { color: #BE123C; }
+.bonus-card-tips  .bonus-card-title  { color: #065F46; }
+
+.bonus-list { display: flex; flex-direction: column; gap: 1rem; }
+
+.bonus-list-item {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.bonus-card-errors .bonus-list-item { color: #9F1239; }
+.bonus-card-tips   .bonus-list-item { color: #065F46; }
+
+.bonus-list-dot { font-weight: 900; flex-shrink: 0; margin-top: 1px; }
+
+.pro-tips {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+}
+
+.pro-tip-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.pro-tip-num {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(124,58,237,0.1);
+  color: var(--violet);
+  font-weight: 800;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pro-tip-text { font-size: 0.92rem; font-weight: 600; color: var(--text); line-height: 1.5; }
+
+.closing-card {
+  padding: 4rem 2.5rem;
+  background: linear-gradient(135deg, var(--blue), var(--violet));
+  border-radius: var(--radius-3xl);
+  text-align: center;
+  color: white;
+  box-shadow: 0 20px 50px rgba(124,58,237,0.35);
+}
+
+.closing-title {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 900;
+  margin-bottom: 1.25rem;
+  line-height: 1.2;
+}
+
+.closing-subtitle {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.82);
+  max-width: 560px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.65;
+}
+
+.closing-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.closing-pill {
+  padding: 8px 20px;
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.28);
+  border-radius: 100px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: white;
+  backdrop-filter: blur(6px);
+}
+
+/* ── RESPONSIVE ───────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .formula-grid { grid-template-columns: repeat(2, 1fr); }
+  .activities-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 700px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+
+  .cover-glass { padding: 2.5rem 1.5rem; }
+  .cover-title { font-size: 2.25rem; }
+
+  .intro-grid     { grid-template-columns: 1fr; }
+  .tools-grid     { grid-template-columns: 1fr; }
+  .formula-grid   { grid-template-columns: 1fr 1fr; }
+  .prompts-grid   { grid-template-columns: 1fr; }
+  .activities-grid{ grid-template-columns: 1fr; }
+  .bonus-grid     { grid-template-columns: 1fr; }
+
+  .section-content { padding: 3.5rem 1rem; }
+}
+
+@media (max-width: 400px) {
+  .formula-grid { grid-template-columns: 1fr; }
+  .cover-stats { flex-direction: column; align-items: center; }
+}
+
+    </style>
+</head>
+
+<body>
+
+  <!-- ── BARRA DE NAVEGACIÓN FIJA ─────────────────────────── -->
+  <header id="navbar" role="banner">
+
+    <!-- Fila principal del nav -->
+    <div class="nav-inner">
+
+      <!-- Logo / Título -->
+      <div class="nav-logo" id="nav-logo" role="button" tabindex="0" aria-label="Ir al inicio">
+        <div class="logo-icon" aria-hidden="true">📚</div>
+        <span>IA para Docentes</span>
+      </div>
+
+      <!-- Botones de sección — desktop (se generan en script.js) -->
+      <nav class="nav-links" id="nav-links" role="navigation" aria-label="Secciones del cuadernillo">
+        <!-- Insertado por JavaScript -->
+      </nav>
+
+      <!-- Botón hamburguesa — mobile -->
+      <button
+        class="hamburger"
+        id="hamburger"
+        aria-label="Abrir menú de navegación"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div><!-- /nav-inner -->
+
+    <!-- Barra de progreso de scroll -->
+    <div id="progress-bar-wrap" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura">
+      <div id="progress-bar"></div>
+    </div>
+
+  </header><!-- /navbar -->
+
+  <!-- ── MENÚ MÓVIL DESPLEGABLE ───────────────────────────── -->
+  <nav id="mobile-menu" aria-label="Menú de navegación móvil" role="navigation">
+    <!-- Insertado por JavaScript -->
+  </nav>
+
+  <!-- ── CONTENIDO PRINCIPAL ──────────────────────────────── -->
+  <!--
+    Todas las secciones son generadas dinámicamente por script.js
+    para mantener los datos centralizados y el HTML limpio.
+
+    Estructura generada:
+      <section id="portada">   ... Sección 1 ...</section>
+      <div class="section-separator">...</div>
+      <section id="intro">     ... Sección 2 ...</section>
+      <div class="section-separator">...</div>
+      <section id="herramientas"> ... </section>
+      <div class="section-separator">...</div>
+      <section id="formula">   ... Sección 4 ...</section>
+      <div class="section-separator">...</div>
+      <section id="prompts">   ... Sección 5 ...</section>
+      <div class="section-separator">...</div>
+      <section id="actividades"> ... </section>
+      <div class="section-separator">...</div>
+      <section id="bonus">     ... Sección 7 ...</section>
+  -->
+  <main id="main-content" role="main">
+    <!-- Contenido generado por script.js -->
+  </main>
+
+  <!-- ── SCRIPTS ───────────────────────────────────────────── -->
+  <!--
+    Colocado al final del body para que el DOM esté disponible
+    cuando el script se ejecute. Se usa el atributo defer para
+    mayor compatibilidad con navegadores modernos y GitHub Pages.
+  -->
+  <script>/* ============================================================
+   IA PARA DOCENTES — Cuadernillo Digital Premium
+   script.js — Toda la lógica JavaScript de la aplicación
+   ============================================================ */
+
+'use strict';
+
+/* ── 1. DATOS DE CONTENIDO ────────────────────────────────── */
+
+const TOOLS = [
+  {
+    name: 'ChatGPT',
+    emoji: '🤖',
+    description: 'Tu asistente versátil para redactar, planificar y estructurar clases completas.',
+    useCase: 'Texto y Planificación',
+    difficulty: 'Fácil',
+    recommended: true
+  },
+  {
+    name: 'Canva AI',
+    emoji: '🎨',
+    description: 'Generación de imágenes y diseño mágico para presentaciones y material visual.',
+    useCase: 'Diseño Visual',
+    difficulty: 'Fácil',
+    recommended: false
+  },
+  {
+    name: 'Google Gemini',
+    emoji: '🔍',
+    description: 'Excelente para buscar información actualizada y resumir documentos largos.',
+    useCase: 'Investigación',
+    difficulty: 'Fácil',
+    recommended: false
+  },
+  {
+    name: 'Perplexity AI',
+    emoji: '🔎',
+    description: 'Un buscador con IA que te da respuestas con fuentes y citas académicas.',
+    useCase: 'Búsqueda Académica',
+    difficulty: 'Intermedio',
+    recommended: false
+  },
+  {
+    name: 'MagicSchool AI',
+    emoji: '🏫',
+    description: 'Plataforma diseñada específicamente para educadores con docenas de herramientas.',
+    useCase: 'Todo en Uno Educativo',
+    difficulty: 'Intermedio',
+    recommended: false
+  }
+];
+
+const PROMPTS = [
+  {
+    category: 'Planificación',
+    title: 'Unidad Didáctica Completa',
+    text: 'Actúa como un docente experto en [Materia] de [Nivel Educativo]. Diseña una unidad didáctica de [Número] semanas sobre el tema \'[Tema]\'. Incluye: objetivos de aprendizaje (basados en taxonomía de Bloom), conceptos clave, 3 actividades interactivas y 1 proyecto final de evaluación.'
+  },
+  {
+    category: 'Planificación',
+    title: 'Adaptación para Diversidad',
+    text: 'Tengo esta actividad: \'[Descripción breve]\'. Por favor, modifícala para que sea accesible para un estudiante con [Necesidad específica, ej: TDAH / Dislexia / Altas Capacidades]. Dame 3 ajustes concretos y cómo presentarlos sin aislar al alumno del resto del grupo.'
+  },
+  {
+    category: 'Evaluación',
+    title: 'Rúbrica de Proyecto',
+    text: 'Crea una rúbrica de evaluación detallada en formato tabla para un proyecto de [Descripción del proyecto] para alumnos de [Edad/Grado]. Usa 4 niveles de desempeño (Excelente, Bueno, Suficiente, Necesita Mejora) y evalúa los siguientes criterios: Contenido, Creatividad, Trabajo en Equipo y Presentación Oral.'
+  },
+  {
+    category: 'Evaluación',
+    title: 'Preguntas de Opción Múltiple',
+    text: 'Genera 10 preguntas de opción múltiple sobre el tema \'[Tema]\' para estudiantes de [Nivel]. Cada pregunta debe tener 4 opciones (A, B, C, D) con solo una respuesta correcta. Marca la respuesta correcta y añade una breve explicación del porqué.'
+  },
+  {
+    category: 'Actividades',
+    title: 'Juego de Roles (Roleplay)',
+    text: 'Diseña una actividad de juego de roles sobre \'[Evento histórico o situación]\'. Dame 5 perfiles de personajes diferentes con sus motivaciones, un escenario de conflicto central y las instrucciones paso a paso para que los estudiantes de [Grado] lo ejecuten en 30 minutos.'
+  },
+  {
+    category: 'Actividades',
+    title: 'Lluvia de Ideas Gamificada',
+    text: 'Actúa como un experto en gamificación educativa. Necesito 5 ideas de actividades lúdicas y participativas para enseñar el tema \'[Tema]\' a estudiantes de [Edad/Grado]. Para cada idea: nombre creativo, mecánica de juego, tiempo estimado y materiales necesarios.'
+  },
+  {
+    category: 'Comunicación con familias',
+    title: 'Correo de Retroalimentación Positiva',
+    text: 'Escribe un borrador de correo electrónico corto, cálido y profesional para enviar a los padres de un estudiante de [Grado]. El correo es para felicitarlos porque el alumno ha mejorado significativamente en [Área/Comportamiento] durante las últimas dos semanas.'
+  },
+  {
+    category: 'Comunicación con familias',
+    title: 'Informe de Progreso Trimestral',
+    text: 'Redacta un informe de progreso trimestral para las familias sobre el desempeño del estudiante [Nombre]. Puntos a incluir: logros académicos en [Materias], áreas de mejora con estrategias concretas, comportamiento general y actitud, y próximos pasos recomendados para trabajar en casa. Tono: profesional pero cercano y empático.'
+  }
+];
+
+const CATEGORIES = ['Planificación', 'Evaluación', 'Actividades', 'Comunicación con familias'];
+
+const ACTIVITIES = [
+  {
+    title: 'Crea tu primera planificación con IA',
+    time: '15 min',
+    difficulty: 'Principiante',
+    tip: 'Prueba pedirle que lo adapte para clases virtuales.',
+    steps: [
+      'Abre ChatGPT (chatgpt.com) o Google Gemini.',
+      "Copia el prompt de 'Unidad Didáctica Completa' de la sección anterior.",
+      'Reemplaza los campos entre corchetes [ ] con tu materia real.',
+      'Envía el mensaje y observa la magia.',
+      "Pide a la IA que modifique algo: 'Haz que la actividad 2 sea más corta'."
+    ]
+  },
+  {
+    title: 'Diseña una rúbrica con ChatGPT',
+    time: '10 min',
+    difficulty: 'Principiante',
+    tip: 'Puedes pedirle a la IA que evalúe un texto usando esta misma rúbrica.',
+    steps: [
+      'Piensa en un trabajo final que tus alumnos deban entregar pronto.',
+      'Usa la fórmula de Prompt: Contexto + Tarea + Formato.',
+      "Ejemplo: 'Soy profe de historia. Crea una rúbrica en formato tabla para un ensayo sobre la Revolución Francesa.'",
+      'Copia la tabla generada y pégala en Word o Excel.',
+      'Ajusta los puntajes según tu criterio personal.'
+    ]
+  },
+  {
+    title: 'Genera material visual con Canva AI',
+    time: '20 min',
+    difficulty: 'Intermedio',
+    tip: 'Si no te gusta la imagen, genera otra con un prompt más detallado.',
+    steps: [
+      "Entra a Canva y crea una nueva 'Presentación educativa'.",
+      "Ve a 'Elementos' y busca la herramienta 'Generador de imágenes AI'.",
+      "Escribe un prompt descriptivo: 'Un dinosaurio leyendo un libro en una biblioteca moderna, estilo ilustración 3D'.",
+      'Inserta la imagen en tu presentación y añade texto.',
+      "Usa la herramienta 'Escritura Mágica' de Canva para generar el texto de esa diapositiva."
+    ]
+  }
+];
+
+/* ── 2. ESTADO DE LA APLICACIÓN ───────────────────────────── */
+let activeSection = 0;
+let activeCategory = 'Planificación';
+let isMenuOpen = false;
+const sectionIds = ['portada', 'intro', 'herramientas', 'formula', 'prompts', 'actividades', 'bonus'];
+const sectionTitles = ['Portada', 'Introducción', 'Herramientas', 'Fórmula Prompt', 'Biblioteca', 'Actividades', 'Bonus'];
+
+/* ── 3. CONSTRUCCIÓN DEL HTML DINÁMICO ────────────────────── */
+
+/**
+ * Genera el HTML de la sección 1 — Portada
+ */
+function buildPortada() {
+  return `
+    <div class="cover-inner">
+      <div class="cover-glass fade-in">
+        <div class="cover-badge">✨ Edición 2025</div>
+        <h1 class="cover-title">
+          IA para Docentes:<br>
+          <span class="gradient-text">Tu Guía Definitiva</span>
+        </h1>
+        <p class="cover-subtitle">
+          Domina la IA para ahorrar tiempo, personalizar el aprendizaje y transformar tus clases.
+        </p>
+        <div class="cover-stats">
+          <span class="cover-stat">📚 7 Secciones</span>
+          <span class="cover-stat">⚡ 30+ Prompts</span>
+          <span class="cover-stat">🎯 100% Práctico</span>
+        </div>
+        <button class="btn btn-premium btn-lg" onclick="scrollToSection(1)">
+          Comenzar →
+        </button>
+      </div>
+    </div>
+  `;
+}
+
+/**
+ * Genera el HTML de la sección 2 — Introducción
+ */
+function buildIntro() {
+  return `
+    <div class="section-content">
+      <div class="section-header fade-in">
+        <span class="section-eyebrow">¿Por qué ahora?</span>
+        <h2 class="section-title">La IA llegó al aula</h2>
+        <p class="section-subtitle">No vino a reemplazarte. Vino a darte superpoderes.</p>
+      </div>
+
+      <div class="intro-grid">
+        <div class="card intro-card blue-top fade-in fade-in-delay-1">
+          <div class="intro-card-icon">⏱️</div>
+          <h3 class="intro-card-title">Ahorra 5+ horas/semana</h3>
+          <p class="intro-card-desc">Planificaciones, rúbricas y materiales en segundos.</p>
+        </div>
+        <div class="card intro-card violet-top fade-in fade-in-delay-2">
+          <div class="intro-card-icon">🎯</div>
+          <h3 class="intro-card-title">Personaliza al instante</h3>
+          <p class="intro-card-desc">Adapta cualquier actividad a diferentes niveles y necesidades.</p>
+        </div>
+        <div class="card intro-card teal-top fade-in fade-in-delay-3">
+          <div class="intro-card-icon">✨</div>
+          <h3 class="intro-card-title">Desbloquea tu creatividad</h3>
+          <p class="intro-card-desc">Supera el bloqueo y genera ideas frescas cuando más las necesitas.</p>
+        </div>
+      </div>
+
+      <blockquote class="intro-quote fade-in">
+        "Con esto podés crear una clase completa en 2 minutos. ¿Lo creés ahora?"
+      </blockquote>
+    </div>
+  `;
+}
+
+/**
+ * Genera el HTML de la sección 3 — Herramientas
+ */
+function buildHerramientas() {
+  const cardsHtml = TOOLS.map(tool => `
+    <div class="card tool-card fade-in">
+      ${tool.recommended ? '<div class="tool-recommended"><span class="badge badge-amber">⭐ Recomendado</span></div>' : ''}
+      <div class="tool-card-header">
+        <div class="tool-emoji">${tool.emoji}</div>
+        <div>
+          <div class="tool-name">${tool.name}</div>
+          <div class="tool-price">Gratis / Freemium</div>
+        </div>
+      </div>
+      <p class="tool-desc">${tool.description}</p>
+      <div class="tool-footer">
+        <span class="badge badge-outline">${tool.useCase}</span>
+        <span class="badge ${tool.difficulty === 'Fácil' ? 'badge-blue' : 'badge-violet'}">${tool.difficulty}</span>
+      </div>
+    </div>
+  `).join('');
+
+  return `
+    <div class="section-content">
+      <div class="section-header fade-in">
+        <span class="section-eyebrow">Herramientas</span>
+        <h2 class="section-title">Tu kit esencial</h2>
+      </div>
+      <div class="tools-grid">${cardsHtml}</div>
+    </div>
+  `;
+}
+
+/**
+ * Genera el HTML de la sección 4 — Fórmula Prompt
+ */
+function buildFormula() {
+  return `
+    <div class="section-content">
+      <div class="section-header fade-in">
+        <span class="section-eyebrow">La clave</span>
+        <h2 class="section-title">La fórmula del prompt perfecto</h2>
+        <p class="section-subtitle">Un prompt claro = una respuesta brillante. Aplica esta fórmula siempre.</p>
+      </div>
+
+      <div class="formula-grid fade-in">
+        <div class="formula-block blue">
+          <div class="formula-block-icon">👤</div>
+          <div class="formula-block-title">Contexto</div>
+          <div class="formula-block-desc">Quién sos y para quién</div>
+        </div>
+        <div class="formula-block violet">
+          <div class="formula-block-icon">✅</div>
+          <div class="formula-block-title">Tarea</div>
+          <div class="formula-block-desc">Qué querés exactamente</div>
+        </div>
+        <div class="formula-block teal">
+          <div class="formula-block-icon">📋</div>
+          <div class="formula-block-title">Formato</div>
+          <div class="formula-block-desc">Cómo lo querés</div>
+        </div>
+        <div class="formula-block orange">
+          <div class="formula-block-icon">🎭</div>
+          <div class="formula-block-title">Ejemplo/Tono</div>
+          <div class="formula-block-desc">Con qué estilo</div>
+        </div>
+      </div>
+
+      <div class="card comparison-card fade-in">
+        <h3 class="comparison-title">Antes vs Después</h3>
+
+        <div class="comparison-row bad">
+          <span class="badge badge-rose">❌ Mal</span>
+          <p class="comparison-text">"Hacé algo sobre la naturaleza"</p>
+        </div>
+
+        <div class="comparison-row good">
+          <span class="badge badge-green">✅ Bien</span>
+          <p class="comparison-text">
+            "<span class="c-blue">Actúa como un profesor de ciencias.</span>
+            <span class="c-violet"> Explícame el ciclo del agua</span>
+            <span class="c-teal"> usando una tabla de 3 columnas</span>
+            <span class="c-orange"> que sea fácil de entender para niños de 12 años.</span>"
+          </p>
+        </div>
+
+        <div>
+          <p class="prompt-label">Ejemplo completo</p>
+          <div class="prompt-block">
+Actúa como un profesor de biología de secundaria. Diseña una actividad práctica de 45 minutos sobre la fotosíntesis. Entrégalo en formato de lista con viñetas, incluyendo los materiales necesarios, los pasos para los estudiantes y una pregunta final de reflexión. Usa un tono motivador y claro.
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+/**
+ * Genera el HTML de la sección 5 — Biblioteca de Prompts
+ * La grilla de prompts se actualiza dinámicamente con renderPrompts()
+ */
+function buildPrompts() {
+  const filterButtons = CATEGORIES.map(cat => `
+    <button
+      class="category-btn ${cat === activeCategory ? 'active' : ''}"
+      data-category="${cat}"
+      onclick="setCategory('${cat}')"
+    >${cat}</button>
+  `).join('');
+
+  return `
+    <div class="section-content">
+      <div class="section-header fade-in">
+        <span class="section-eyebrow">Biblioteca</span>
+        <h2 class="section-title">Prompts listos para usar</h2>
+        <p class="section-subtitle">Copia, pega y adapta. Están diseñados para docentes como vos.</p>
+      </div>
+
+      <div class="category-filters fade-in" id="category-filters">
+        ${filterButtons}
+      </div>
+
+      <div class="prompts-grid" id="prompts-grid">
+        <!-- Se renderiza dinámicamente -->
+      </div>
+    </div>
+  `;
+}
+
+/**
+ * Renderiza las tarjetas de prompts según la categoría activa
+ */
+function renderPrompts() {
+  const grid = document.getElementById('prompts-grid');
+  if (!grid) return;
+
+  const filtered = PROMPTS.filter(p => p.category === activeCategory);
+
+  if (filtered.length === 0) {
+    grid.innerHTML = '<p style="text-align:center;color:var(--text-muted);padding:3rem;">No hay prompts en esta categoría todavía.</p>';
+    return;
+  }
+
+  grid.innerHTML = filtered.map((prompt, i) => `
+    <div class="prompt-card">
+      <div class="prompt-card-body">
+        <span class="badge badge-outline" style="margin-bottom:0.5rem;">${prompt.category}</span>
+        <h3 class="prompt-card-title">${prompt.title}</h3>
+        <div class="prompt-block">${escapeHtml(prompt.text)}</div>
+      </div>
+      <button
+        class="prompt-copy-btn default"
+        id="copy-btn-${i}"
+        onclick="copyPrompt(${JSON.stringify(prompt.text).replace(/'/g, "\\'")}, ${i})"
+      >
+        📋 Copiar Prompt
+      </button>
+    </div>
+  `).join('');
+}
+
+/**
+ * Cambia la categoría activa de prompts
+ */
+function setCategory(cat) {
+  activeCategory = cat;
+
+  // Actualizar botones de filtro
+  document.querySelectorAll('.category-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.category === cat);
+  });
+
+  // Re-renderizar prompts
+  renderPrompts();
+}
+
+/**
+ * Copia el texto del prompt al portapapeles
+ */
+function copyPrompt(text, index) {
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.getElementById(`copy-btn-${index}`);
+    if (!btn) return;
+
+    btn.classList.remove('default');
+    btn.classList.add('copied');
+    btn.textContent = '✅ ¡Copiado!';
+
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      btn.classList.add('default');
+      btn.textContent = '📋 Copiar Prompt';
+    }, 2000);
+  }).catch(() => {
+    // Fallback para navegadores sin soporte de clipboard API
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.style.position = 'fixed';
+    textarea.style.opacity = '0';
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+
+    const btn = document.getElementById(`copy-btn-${index}`);
+    if (btn) {
+      btn.classList.remove('default');
+      btn.classList.add('copied');
+      btn.textContent = '✅ ¡Copiado!';
+      setTimeout(() => {
+        btn.classList.remove('copied');
+        btn.classList.add('default');
+        btn.textContent = '📋 Copiar Prompt';
+      }, 2000);
+    }
+  });
+}
+
+/**
+ * Genera el HTML de la sección 6 — Actividades
+ */
+function buildActividades() {
+  const cardsHtml = ACTIVITIES.map((act, i) => {
+    const stepsHtml = act.steps.map((step, j) => `
+      <div class="activity-step">
+        <div class="step-num">${j + 1}</div>
+        <div class="step-text">${step}</div>
+      </div>
+    `).join('');
+
+    return `
+      <div class="activity-card fade-in fade-in-delay-${i + 1}">
+        <div class="activity-top-bar"></div>
+        <div class="activity-card-body">
+          <div class="activity-number">0${i + 1}</div>
+          <h3 class="activity-title">${act.title}</h3>
+          <div class="activity-badges">
+            <span class="badge badge-white">⏱ ${act.time}</span>
+            <span class="badge badge-violet">${act.difficulty}</span>
+          </div>
+          <div class="activity-steps">${stepsHtml}</div>
+        </div>
+        <div class="activity-tip">
+          <strong>💡 Tip:</strong> ${act.tip}
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  return `
+    <div class="section-content">
+      <div class="section-header fade-in">
+        <span class="section-eyebrow">En acción</span>
+        <h2 class="section-title">Hacelo ahora mismo</h2>
+        <p class="section-subtitle">Seguí estos pasos y tenés tu primer resultado con IA en menos de 20 minutos.</p>
+      </div>
+      <div class="activities-grid">${cardsHtml}</div>
+    </div>
+  `;
+}
+
+/**
+ * Genera el HTML de la sección 7 — Bonus
+ */
+function buildBonus() {
+  const errors = [
+    'Ingresar datos privados o personales de tus alumnos.',
+    "Aceptar la primera respuesta sin revisar (la IA puede 'alucinar').",
+    'Usar prompts demasiado cortos y sin contexto.'
+  ];
+
+  const tips = [
+    "Pide a la IA que asuma un rol específico ('Eres un evaluador estricto').",
+    "Si la respuesta es mala, dile 'No me gusta, hazlo más X'.",
+    'Pídele que te haga preguntas antes de empezar a generar el contenido.'
+  ];
+
+  const proTips = [
+    'Usa la IA para generar múltiples versiones de un examen y evitar copias.',
+    'Pídele a la IA que simule ser un alumno confundido para practicar cómo explicar un tema.',
+    'Genera correos de respuesta automáticos para las consultas más comunes de los padres.'
+  ];
+
+  const errorsHtml = errors.map(e => `
+    <li class="bonus-list-item"><span class="bonus-list-dot">•</span><span>${e}</span></li>
+  `).join('');
+
+  const tipsHtml = tips.map(t => `
+    <li class="bonus-list-item"><span class="bonus-list-dot">•</span><span>${t}</span></li>
+  `).join('');
+
+  const proTipsHtml = proTips.map((t, i) => `
+    <div class="pro-tip-item fade-in fade-in-delay-${i + 1}">
+      <div class="pro-tip-num">${i + 1}</div>
+      <p class="pro-tip-text">${t}</p>
+    </div>
+  `).join('');
+
+  return `
+    <div class="section-content">
+      <div class="section-header fade-in">
+        <span class="section-eyebrow">Bonus</span>
+        <h2 class="section-title">Úsala como un experto</h2>
+      </div>
+
+      <div class="bonus-grid">
+        <div class="bonus-card-errors fade-in fade-in-delay-1">
+          <h3 class="bonus-card-title">❌ Errores comunes</h3>
+          <ul class="bonus-list">${errorsHtml}</ul>
+        </div>
+        <div class="bonus-card-tips fade-in fade-in-delay-2">
+          <h3 class="bonus-card-title">✅ Tips Pro</h3>
+          <ul class="bonus-list">${tipsHtml}</ul>
+        </div>
+      </div>
+
+      <div class="pro-tips">${proTipsHtml}</div>
+
+      <div class="closing-card fade-in">
+        <h3 class="closing-title">🚀 ¡Estás listo para transformar tus clases!</h3>
+        <p class="closing-subtitle">
+          La Inteligencia Artificial es una herramienta poderosa, pero la empatía,
+          el criterio y tu pasión por enseñar siempre serán el corazón del aula.
+        </p>
+        <div class="closing-pills">
+          <span class="closing-pill">Aplica lo aprendido hoy</span>
+          <span class="closing-pill">Comparte con colegas</span>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+/* ── 4. INICIALIZACIÓN Y CONSTRUCCIÓN DEL DOM ─────────────── */
+
+/**
+ * Construye e inserta todos los elementos en el DOM
+ */
+function buildApp() {
+  buildNav();
+  buildSections();
+}
+
+/**
+ * Construye la barra de navegación
+ */
+function buildNav() {
+  const navLinks = document.getElementById('nav-links');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  sectionIds.forEach((id, i) => {
+    // Desktop nav buttons
+    const btn = document.createElement('button');
+    btn.className = 'nav-btn' + (i === 0 ? ' active' : '');
+    btn.textContent = `${i + 1}. ${sectionTitles[i]}`;
+    btn.dataset.index = i;
+    btn.onclick = () => scrollToSection(i);
+    navLinks.appendChild(btn);
+
+    // Mobile nav buttons
+    const mBtn = document.createElement('button');
+    mBtn.className = 'mobile-nav-btn' + (i === 0 ? ' active' : '');
+    mBtn.textContent = `${i + 1}. ${sectionTitles[i]}`;
+    mBtn.dataset.index = i;
+    mBtn.onclick = () => { scrollToSection(i); closeMenu(); };
+    mobileMenu.appendChild(mBtn);
+  });
+}
+
+/**
+ * Construye e inserta las 7 secciones en el main
+ */
+function buildSections() {
+  const main = document.getElementById('main-content');
+
+  const sectionBuilders = [
+    buildPortada,
+    buildIntro,
+    buildHerramientas,
+    buildFormula,
+    buildPrompts,
+    buildActividades,
+    buildBonus
+  ];
+
+  sectionIds.forEach((id, i) => {
+    // Sección
+    const section = document.createElement('section');
+    section.id = id;
+    section.innerHTML = sectionBuilders[i]();
+    main.appendChild(section);
+
+    // Separador entre secciones (no después de la última)
+    if (i < sectionIds.length - 1) {
+      const sep = document.createElement('div');
+      sep.className = 'section-separator';
+      sep.innerHTML = '<div class="section-separator-line"></div>';
+      main.appendChild(sep);
+    }
+  });
+
+  // Renderizar prompts iniciales después de insertar la sección
+  renderPrompts();
+}
+
+/* ── 5. NAVEGACIÓN Y PROGRESO ─────────────────────────────── */
+
+/**
+ * Desplaza suavemente hacia una sección por índice
+ */
+function scrollToSection(index) {
+  const id = sectionIds[index];
+  const el = document.getElementById(id);
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+/**
+ * Actualiza el botón activo en el nav desktop y móvil
+ */
+function setActiveNav(index) {
+  if (activeSection === index) return;
+  activeSection = index;
+
+  document.querySelectorAll('.nav-btn').forEach((btn, i) => {
+    btn.classList.toggle('active', i === index);
+  });
+
+  document.querySelectorAll('.mobile-nav-btn').forEach((btn, i) => {
+    btn.classList.toggle('active', i === index);
+  });
+}
+
+/**
+ * Actualiza la barra de progreso de scroll
+ */
+function updateProgressBar() {
+  const scrollY = window.scrollY;
+  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = maxScroll > 0 ? (scrollY / maxScroll) * 100 : 0;
+  document.getElementById('progress-bar').style.width = progress + '%';
+}
+
+/**
+ * Configura el IntersectionObserver para detectar sección visible
+ */
+function setupIntersectionObserver() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        const index = sectionIds.indexOf(id);
+        if (index !== -1) setActiveNav(index);
+      }
+    });
+  }, {
+    root: null,
+    rootMargin: '-40% 0px -40% 0px',
+    threshold: 0
+  });
+
+  sectionIds.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+}
+
+/* ── 6. ANIMACIONES DE SCROLL (Intersection Observer) ─────── */
+
+/**
+ * Activa las animaciones fade-in cuando los elementos entran al viewport
+ */
+function setupFadeInAnimations() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target); // Solo anima una vez
+      }
+    });
+  }, {
+    root: null,
+    rootMargin: '0px 0px -60px 0px',
+    threshold: 0.1
+  });
+
+  // Observar todos los elementos con clase fade-in
+  document.querySelectorAll('.fade-in').forEach(el => {
+    observer.observe(el);
+  });
+}
+
+/* ── 7. MENÚ MÓVIL ────────────────────────────────────────── */
+
+/**
+ * Alterna la apertura del menú móvil
+ */
+function toggleMenu() {
+  isMenuOpen = !isMenuOpen;
+  const menu = document.getElementById('mobile-menu');
+  const ham = document.getElementById('hamburger');
+
+  menu.classList.toggle('open', isMenuOpen);
+  ham.classList.toggle('open', isMenuOpen);
+}
+
+/**
+ * Cierra el menú móvil
+ */
+function closeMenu() {
+  isMenuOpen = false;
+  document.getElementById('mobile-menu').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+}
+
+/* ── 8. UTILIDADES ────────────────────────────────────────── */
+
+/**
+ * Escapa caracteres HTML especiales para mostrar texto seguro
+ */
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+
+/* ── 9. EVENTOS Y ARRANQUE ────────────────────────────────── */
+
+// Esperar a que el DOM esté completamente cargado
+document.addEventListener('DOMContentLoaded', () => {
+
+  // Construir toda la app
+  buildApp();
+
+  // Configurar observadores
+  setupIntersectionObserver();
+  setupFadeInAnimations();
+
+  // Eventos de scroll
+  window.addEventListener('scroll', updateProgressBar, { passive: true });
+
+  // Evento del hamburger
+  const ham = document.getElementById('hamburger');
+  if (ham) ham.addEventListener('click', toggleMenu);
+
+  // Logo → ir al inicio
+  const logo = document.getElementById('nav-logo');
+  if (logo) logo.addEventListener('click', () => scrollToSection(0));
+
+  // Cerrar menú móvil al hacer clic fuera
+  document.addEventListener('click', (e) => {
+    if (isMenuOpen && !e.target.closest('#navbar') && !e.target.closest('#mobile-menu')) {
+      closeMenu();
+    }
+  });
+
+  // Inicializar barra de progreso
+  updateProgressBar();
+});
+</script>
+
+</body>
+</html>
